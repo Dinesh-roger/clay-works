@@ -1,0 +1,33 @@
+.cta-banner-section {
+  background: linear-gradient(135deg, var(--terracotta), var(--brown-rich));
+  padding: 80px 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.cta-banner-overlay {
+  position: absolute;
+  inset: 0;
+  background: url("data:image/svg+xml,%3Csvg width='60' height='60' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='30' cy='30' r='1' fill='rgba(212,168,67,0.15)'/%3E%3C/svg%3E") repeat;
+}
+
+.cta-om-icon {
+  font-size: 3rem;
+  color: rgba(212, 168, 67, 0.4);
+  display: block;
+  margin-bottom: 16px;
+  animation: glowPulse 3s ease-in-out infinite;
+}
+
+.cta-banner-section h2 {
+  font-family: var(--font-display);
+  font-size: clamp(1.4rem, 3vw, 2.2rem);
+  color: var(--cream);
+  margin-bottom: 12px;
+}
+
+.cta-banner-section p {
+  font-family: var(--font-elegant);
+  font-size: 1.15rem;
+  color: rgba(253, 245, 230, 0.8);
+}

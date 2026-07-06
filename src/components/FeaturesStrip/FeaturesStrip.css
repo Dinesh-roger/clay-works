@@ -1,0 +1,43 @@
+.features-strip {
+  background: var(--white);
+  padding: 40px 0;
+  border-bottom: 2px solid var(--cream-dark);
+}
+
+.feature-card {
+  text-align: center;
+  padding: 24px 16px;
+  border-radius: var(--radius-md);
+  background: var(--cream);
+  border: 1px solid var(--cream-dark);
+  transition: var(--transition);
+  height: 100%;
+}
+
+.feature-card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-gold);
+  border-color: var(--gold);
+  background: var(--white);
+}
+
+.feature-icon {
+  font-size: 2rem;
+  color: var(--gold);
+  margin-bottom: 12px;
+  display: block;
+}
+
+.feature-card h6 {
+  font-family: var(--font-display);
+  font-size: 0.85rem;
+  color: var(--deep-brown);
+  margin-bottom: 6px;
+}
+
+.feature-card p {
+  font-size: 0.82rem;
+  color: var(--text-light);
+  margin: 0;
+  line-height: 1.5;
+}

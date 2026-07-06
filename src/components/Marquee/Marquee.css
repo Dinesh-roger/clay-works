@@ -1,0 +1,20 @@
+.marquee-banner {
+  background: linear-gradient(90deg, var(--terracotta), var(--brown-rich), var(--terracotta));
+  padding: 12px 0;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.marquee-track {
+  display: inline-block;
+  animation: marqueeScroll 30s linear infinite;
+  color: var(--gold-light);
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 1.2rem;
+  letter-spacing: 1px;
+}
+
+.marquee-banner:hover .marquee-track {
+  animation-play-state: paused;
+}

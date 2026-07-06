@@ -1,0 +1,10 @@
+.top-ribbon {
+  background: var(--deep-brown);
+  color: var(--gold-light);
+  font-family: var(--font-body);
+  font-size: 0.82rem;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  padding: 8px 20px;
+  border-bottom: 1px solid rgba(212, 168, 67, 0.2);
+}
