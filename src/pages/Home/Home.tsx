@@ -109,7 +109,7 @@ const Home: React.FC = () => {
               </div>
             </div>
             <div className="col-lg-6 d-none d-lg-flex justify-content-center align-items-center">
-              <div className="hero-idol-showcase">
+              {/* <div className="hero-idol-showcase">
                 <div className="hero-idol-glow"></div>
                 <img
                   src="/images/WhatsApp Image 2026-06-07 at 10.16.39 AM (3).jpeg"
@@ -125,7 +125,7 @@ const Home: React.FC = () => {
                   <i className="fa-solid fa-award"></i>
                   <span>Award Winning</span>
                 </div>
-              </div>
+              </div> */}
             </div>
           </div>
         </div>

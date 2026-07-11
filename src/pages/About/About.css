@@ -1,5 +1,6 @@
 .about-section {
   background: var(--cream);
+  overflow-x: hidden;   /* prevents the whole page from scrolling sideways */
 }
 
 .about-image-grid {
@@ -32,13 +33,14 @@
 .about-exp-badge {
   position: absolute;
   bottom: -18px;
-  right: -16px;
+  right: 8px;              /* ⬅️ changed from -16px */
   background: linear-gradient(135deg, var(--gold), var(--gold-dark));
   color: var(--deep-brown);
   padding: 20px 24px;
   border-radius: var(--radius-md);
   text-align: center;
   box-shadow: var(--shadow-gold);
+  max-width: calc(100% - 16px);  /* ⬅️ keeps badge inside container */
 }
 
 .exp-num {
@@ -87,7 +89,7 @@
   }
 
   .about-exp-badge {
-    right: 8px;
+    right: 4px;
     bottom: -14px;
     padding: 14px 18px;
   }

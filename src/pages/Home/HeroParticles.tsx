@@ -1,6 +1,6 @@
 import React, { useMemo } from 'react';
 
-const SYMBOLS = [];
+const SYMBOLS = ["🕉️", "🙏", "🌸", "🪔", "🎶", "🌺", "🕊️", "🌼", "🌿", "🍃"];
 
 const HeroParticles: React.FC = () => {
   const particles = useMemo(
