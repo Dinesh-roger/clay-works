@@ -1,20 +1,15 @@
-import React from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import Marquee from '../../components/Marquee/Marquee';
 import FeaturesStrip from '../../components/FeaturesStrip/FeaturesStrip';
 import CTABanner from '../../components/CTABanner/CTABanner';
+import ProductCard from '../../components/ProductCard/ProductCard';
+import QuickViewModal from '../../components/QuickViewModal/QuickViewModal';
 import HeroParticles from './HeroParticles';
 import { useCountUp } from '../../hooks/useCountUp';
+import { PRODUCTS } from '../../data/products';
+import type { Product } from '../../types';
 import './Home.css';
-
-const CATEGORIES = [
-  { icon: 'fa-gopuram', size: '3 – 5 Ft', name: 'Home Shrine', count: '12 Designs', filter: '3-5' },
-  { icon: 'fa-gopuram', size: '6 – 8 Ft', name: 'Society Idol', count: '8 Designs', filter: '6-8' },
-  { icon: 'fa-gopuram', size: '9 – 11 Ft', name: 'Pandal Grade', count: '6 Designs', filter: '9-11', active: true },
-  { icon: 'fa-gopuram', size: '12 – 13 Ft', name: 'Grand Idol', count: '4 Designs', filter: '12-13' },
-  { icon: 'fa-leaf', size: 'Eco Clay', name: 'Dissolves Fast', count: 'All Sizes', filter: 'all' },
-  { icon: 'fa-palette', size: 'Custom', name: 'Your Design', count: 'Any Size', filter: 'all' },
-];
 
 const STATS = [
   { target: 1200, label: 'Idols Delivered' },
@@ -68,7 +63,10 @@ const StarsInline: React.FC<{ rating: number }> = ({ rating }) => {
 };
 
 const Home: React.FC = () => {
-  const navigate = useNavigate();
+  const [quickViewProduct, setQuickViewProduct] = useState<Product | null>(null);
+
+  // Show a mix of idols across sizes on the homepage, like a "Shop by Collection" grid
+  const FEATURED_PRODUCTS = PRODUCTS.slice(0, 8);
 
   return (
     <>
@@ -138,33 +136,39 @@ const Home: React.FC = () => {
       <Marquee />
       <FeaturesStrip />
 
-      {/* ===== CATEGORIES ===== */}
-      <section id="categories" className="categories-section section-gap">
+      {/* ===== OUR COLLECTIONS (PRODUCT GRID) ===== */}
+      <section id="categories" className="products-preview-section section-gap">
         <div className="container">
           <div className="section-header text-center mb-5">
-            <span className="section-tag">Browse by Size</span>
+            <span className="section-tag">Shop Our Idols</span>
             <h2 className="section-title">Our Collections</h2>
             <p className="section-desc">
               From intimate home shrines to grand pandal centerpieces — find your perfect Vinayagar
             </p>
           </div>
+
           <div className="row g-4">
-            {CATEGORIES.map((cat) => (
-              <div className="col-6 col-md-4 col-lg-2" key={cat.name}>
-                <div
-                  className={`category-card${cat.active ? ' active' : ''}`}
-                  onClick={() => navigate(`/products?filter=${cat.filter}`)}
-                >
-                  <div className="cat-icon-wrap"><i className={`fa-solid ${cat.icon}`}></i></div>
-                  <div className="cat-size">{cat.size}</div>
-                  <div className="cat-name">{cat.name}</div>
-                  <div className="cat-count">{cat.count}</div>
-                </div>
-              </div>
+            {FEATURED_PRODUCTS.map((product, index) => (
+              <ProductCard
+                key={product.id}
+                product={product}
+                onQuickView={setQuickViewProduct}
+                delay={index * 0.05}
+              />
             ))}
+          </div>
+
+          <div className="text-center mt-5">
+            <Link to="/products" className="btn-primary-custom">
+              <i className="fa-solid fa-gopuram me-2"></i> View All Collections
+            </Link>
           </div>
         </div>
       </section>
+
+      {quickViewProduct && (
+        <QuickViewModal product={quickViewProduct} onClose={() => setQuickViewProduct(null)} />
+      )}
 
       {/* ===== TESTIMONIALS ===== */}
       <section className="testimonials-section section-gap">
