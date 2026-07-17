@@ -262,6 +262,10 @@
   background: var(--cream);
 }
 
+.products-preview-section {
+  background: var(--white);
+}
+
 .category-card {
   background: var(--white);
   border: 2px solid var(--cream-dark);
